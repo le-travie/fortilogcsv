@@ -15,7 +15,7 @@ except:
     raise Exception("Invalid input file")
 
 pattern = re.compile(
-    '(\w+)(?:=)(?:"{1,2}([\w\-\.:\ =]+)"{1,3})|(\w+)=(?:([\w\-\.:\=]+))')  # Regex matches "field=value" or "field=""more words""" syntax
+    '(\w+)(?:=)(?:([^\s,""]+|"(?:\\.|[^""])*"))|(\w+)=(?:([\w\-\.:\=]+))')  # Regex matches "field=value" or "field=""more words""" syntax
 events = []  # List to hold individual event dicts
 
 for line in log_data:
